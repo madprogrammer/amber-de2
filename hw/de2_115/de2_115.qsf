@@ -1442,7 +1442,7 @@ set_global_assignment -name VERILOG_FILE ../vlog/amber23/a23_fetch.v
 set_global_assignment -name VERILOG_FILE ../vlog/amber23/a23_execute.v
 set_global_assignment -name VERILOG_FILE ../vlog/amber23/a23_decode.v
 set_global_assignment -name VERILOG_FILE ../vlog/amber23/a23_core.v
-set_global_assignment -name VERILOG_FILE ../vlog/system/de2_115_system.v
+set_global_assignment -name VERILOG_FILE de2_115_system.v
 set_global_assignment -name QIP_FILE sram_256_128_byte_en.qip
 set_global_assignment -name QIP_FILE sram_2048_32_byte_en.qip
 set_global_assignment -name QIP_FILE sram_256_21_line_en.qip
