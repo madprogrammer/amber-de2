@@ -141,12 +141,17 @@ assign address     = i_wb_adr[MADDR_WIDTH+1:2];
 `endif 
 
 `ifndef XILINX_FPGA
-generic_sram_byte_en
+    `ifdef DE2_115
+    de2_115_sram_2048_32_byte_en
+    `else
+    generic_sram_byte_en
+    `endif
+`endif
+
 #(
     .DATA_WIDTH     ( WB_DWIDTH             ),
     .ADDRESS_WIDTH  ( MADDR_WIDTH           )
 )
-`endif 
 u_mem (
     .i_clk          ( i_wb_clk             ),
     .i_write_enable ( start_write          ),
