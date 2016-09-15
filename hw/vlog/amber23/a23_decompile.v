@@ -60,6 +60,7 @@ input                       i_pc_wen
 
 );
 
+`include "a23_functions.vh"
 `include "a23_localparams.vh"
         
 `ifdef A23_DECOMPILE

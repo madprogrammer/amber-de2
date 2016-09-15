@@ -79,7 +79,11 @@
 
 `define TB_DEBUG_MESSAGE        $display("\nDEBUG in %m @ tick %8d ", `U_TB.clk_count );
 `define TB_WARNING_MESSAGE      $display("\nWARNING in %m @ tick %8d", `U_TB.clk_count );
+`ifdef VERILATOR
+`define TB_ERROR_MESSAGE        $display("\nFATAL ERROR in %m @ tick %8d", `U_TB.clk_count );
+`else
 `define TB_ERROR_MESSAGE        $display("\nFATAL ERROR in %m @ tick %8d", `U_TB.clk_count ); force `U_TB.testfail = 1'd1;
+`endif
 
 
 `ifdef XILINX_FPGA

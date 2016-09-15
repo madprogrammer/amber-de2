@@ -1,0 +1,5 @@
+*.mem
+obj_dir/*
+amber.dis
+*.log
+qqq

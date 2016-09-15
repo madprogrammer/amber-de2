@@ -44,6 +44,10 @@
 
 
 module tb_uart (
+`ifdef VERILATOR
+input                       i_clk_uart,
+input                       i_uart_rst_n,
+`endif
 input                       i_uart_cts_n,          // Clear To Send
 output reg                  o_uart_txd,
 output                      o_uart_rts_n,          // Request to Send
@@ -63,8 +67,15 @@ localparam UART_BIT_PERIOD   = 1000000000 / UART_BAUD;      // nS
 
 // -------------------------------------------------------------------------
 
+`ifndef VERILATOR
 reg             clk_uart;
 reg             clk_uart_rst_n;
+`else
+wire            clk_uart;
+wire            clk_uart_rst_n;
+assign          clk_uart = i_clk_uart;
+assign          clk_uart_rst_n = i_uart_rst_n;
+`endif
 
 reg [1:0]       rx_state;
 reg [2:0]       rx_bit;
@@ -98,6 +109,7 @@ reg  [4:0]      txfifo_rp;
 // UART Clock
 // ======================================================
 
+`ifndef VERILATOR
 // runs at 10x baud rate
 initial
     begin
@@ -112,7 +124,7 @@ initial
     // out of reset
     #(UART_BIT_PERIOD*1000) clk_uart_rst_n  = 1'd1;
     end
-
+`endif
         
 // ======================================================
 // UART Receive
