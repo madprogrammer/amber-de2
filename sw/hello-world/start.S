@@ -64,8 +64,8 @@ _start:
                 
         b       _testpass
         
-/* stack at top of ddr3 memory space */
-AdrStack: .word  0x8000000
+/* stack at top of boot memory space */
+AdrStack: .word  0x0001FF0
 
 
         .section .bss

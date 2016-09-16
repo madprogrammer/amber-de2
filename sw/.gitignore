@@ -1,0 +1,13 @@
+*.dis
+*.map
+*.flt
+*.mem
+*.o
+*.v
+*.elf
+tools/amber-ascii-mem
+tools/amber-bin2mem
+tools/amber-elfsplitter
+tools/amber-func-jumps
+tools/amber-mem-ascii
+tools/amber-pkt2mem
