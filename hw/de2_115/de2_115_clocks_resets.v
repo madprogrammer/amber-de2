@@ -30,7 +30,6 @@ wire pll_locked;
  // for real system insert Altera PLL
  de2_115_pll pll_inst (
 	.inclk0(i_brd_clk),
-	.areset(1'b0 /* i_brd_rst */),
 	.c0(o_sys_clk), // 40Mhz
 	.c1(o_mem_clk), // 80Mhz
 	.locked(pll_locked)

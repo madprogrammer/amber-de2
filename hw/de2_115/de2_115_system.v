@@ -48,7 +48,9 @@ input                       brd_clk_p,
 
 
 // UART 0 Interface
+`ifdef USE_PHYSICAL_RS232
 input                       i_uart0_rts,
+`endif
 output                      o_uart0_rx,
 output                      o_uart0_cts,
 input                       i_uart0_tx,
@@ -56,6 +58,8 @@ input                       i_uart0_tx,
 `ifdef SDRAM
 // SDRAM interface
 output                      sdr_clk,
+output                      sdr_cke,
+output                      sdr_cs_n,
 output                      sdr_ras_n,
 output                      sdr_cas_n,
 output                      sdr_we_n,
@@ -88,6 +92,16 @@ output  [3:0]               led
 wire            phy_init_done;
 wire            system_rdy;
 wire            brd_rst;
+
+`ifndef USE_PHYSICAL_RS232
+wire            i_uart0_rts;
+assign          i_uart0_rts = 1'b0;
+`endif
+
+`ifdef SDRAM
+assign          sdr_cs_n = 1'b0;
+assign          sdr_cke = 1'b1;
+`endif
 
 assign brd_rst = ~brd_n_rst;
 
