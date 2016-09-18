@@ -143,7 +143,9 @@ _jump_to_program:
         @ ----------------------------------------------
         mov     r4, r0
         orr     r4, #0x0c000003
-        mov     r0, #0  
+        mov     r0, #0
+        ldr		r1, =#0xffffffff
+        ldr		r2, =#0x00078000
         mov     pc, r4
 
 
@@ -182,8 +184,8 @@ _core_status:
         ldmia  sp!,{pc}^
         
 
-/* stack at top of ddr3 memory space */
-AdrStack:                   .word 0x02000000
+/* stack in sdram memory space */
+AdrStack:                   .word 0x00008000
 AdrMemCtrl:                 .word ADR_AMBER_TEST_MEM_CTRL
 
 /* core status messages */
