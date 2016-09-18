@@ -11,3 +11,4 @@ tools/amber-elfsplitter
 tools/amber-func-jumps
 tools/amber-mem-ascii
 tools/amber-pkt2mem
+tools/mem2mif
