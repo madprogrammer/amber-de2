@@ -69,7 +69,7 @@
 // UART Baud rate for both uarts
 // e.g. 921600, 460800, 230400, 57600
 // `define AMBER_UART_BAUD 921600
-`define AMBER_UART_BAUD 921600
+`define AMBER_UART_BAUD 460800
 
 
 // --------------------------------------------------------------------
