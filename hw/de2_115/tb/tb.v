@@ -19,6 +19,7 @@ wire    [3:0]           led;
 `include "debug_functions.vh"
 
 `define AMBER_UART_BAUD         921600
+`define USE_PHYSICAL_RS232
 
 `ifdef SDRAM
 wire    w_sdr_clk;
