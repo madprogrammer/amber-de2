@@ -33,13 +33,11 @@ int main(int argc, char **argv, char **env) {
 
     while (!Verilated::gotFinish())
 	{
-		if ((main_time % 6) == 0) {
-	    	tb->clk_80mhz = !tb->clk_80mhz;
-		}
-		if (((main_time - 4) % 54) == 0) {
+		tb->clk_80mhz = !tb->clk_80mhz;
+		if (((main_time - 4) % 9) == 0) {
 			tb->uart_clk = !tb->uart_clk;
 		}
-		if (main_time > 62) {
+		if (main_time > 500) {
 	    	tb->sysrst = 1;
 		}
 		tb->eval();
